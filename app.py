@@ -46,7 +46,19 @@ def save_plant ():
     # Plant_image
     plant_image = request.files['plant_image']
 
-    return plant_image.filename
+    if 'plant_image' not in request.files:
+        plant_image.filename = "default_image.jpg"
+    else:
+    # if user does not select file, browser also
+    # submit a empty part without filename
+        if plant_image.filename == '':
+            plant_image.filename = "default_image.jpg"
+        else:
+            plant_image.save(os.path.join(app.config['UPLOAD_FOLDER'], plant_image.filename.replace(" ", "_") ))
+            # Upload image file to static folder
+            plant_image.save(os.path.join(app.config['UPLOAD_FOLDER'], plant_image.filename ))
+            
+    return 
     
     
 # "magic code" -- boilerplate
