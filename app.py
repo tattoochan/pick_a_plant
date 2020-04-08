@@ -3,7 +3,11 @@ import os
 import pymongo	
 
 app = Flask(__name__)
-	
+
+# setting up the upload folder
+UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/static/images'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 # Setting up the MONGODB DATABASES to be link up	
 MONGO_URI = os.getenv('MONGO_URI')
 DATABASE_NAME = 'pick_a_plant'
@@ -22,8 +26,27 @@ def index():
 
 @app.route('/new_plant') 
 def new_plant():
-    return render_template ("new_plant.html")
+    
+    
+    
+    
+    
+    return render_template ("new_plant.html", data={})
  
+@app.route('/new_plant', methods=['POST'])
+def save_plant ():
+    # Plant name 
+    plant_name = request.form.get('plant_name')
+    # Plant info
+    plant_info = request.form.get('plant_info')
+    # Plant benefits
+    plant_benefits = request.form.get('plant_benefits')
+    # Plant price
+    plant_price = request.form.get('plant_price')
+    # Plant_image
+    
+    return plant_name + plant_benefits
+    
     
 # "magic code" -- boilerplate
 if __name__ == '__main__':
