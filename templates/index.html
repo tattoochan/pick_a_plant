@@ -15,7 +15,7 @@
                                 <img src='static/images/{{ d.plant_image }}' />
                             </div>
                             <div>
-                                <a class="close" href="{{ url_for('confirm_delete') }}"><small>&#x2716</small></a>
+                                <a class="close" href="{{ url_for('confirm_delete', plant_id=d['_id']) }}"><small>&#x2716</small></a>
                             </div>
                             
                         </div>

@@ -18,16 +18,16 @@ conn = pymongo.MongoClient(MONGO_URI)
 # set 'data' to be the name to represent the database link
 data = conn[DATABASE_NAME][COLLECTION_NAME]
 
-''' map the root route to the index function '''
+""" LANDINGPAGE """
 @app.route('/')
 def index():
     result = data.find({})
     return render_template ("index.html" , data = result)
 
+""" NEW PLANT ENTRY """
 @app.route('/new_plant') 
 def new_plant():
     return render_template ("new_plant.html", data={})
- 
 @app.route('/new_plant', methods=['POST'])
 def save_plant ():
     # Plant name 
@@ -57,6 +57,7 @@ def save_plant ():
     })
     return redirect(url_for('index'))
     
+""" CHANGES ROUTE """
 @app.route('/make_changes/<plant_id>/<image>')
 def make_changes(plant_id,image):
     # Get the id of the plant being edited
@@ -64,7 +65,6 @@ def make_changes(plant_id,image):
         '_id':ObjectId(plant_id)
     })
     return render_template('make_changes.html', data=result)
-    
 @app.route('/make_changes/<plant_id>/<image>', methods=["POST"])
 def save_changes(plant_id,image):
     # Get the id of the plant being edited
@@ -104,10 +104,22 @@ def save_changes(plant_id,image):
     })  
     return redirect(url_for('index'))
     
-@app.route('/confirm_delete')
-def confirm_delete():
-    return render_template('confirm_delete.html')
-    
+""" DELETE ROUTE """
+@app.route('/confirm_delete/<plant_id>')
+def confirm_delete(plant_id):
+    # Get the id of the plant being edited
+    result = data.find_one({
+        '_id':ObjectId(plant_id)
+    })
+    return render_template('confirm_delete.html', data=result)
+
+@app.route('/delete_plant/<plant_id>')
+def delete_plant(plant_id):
+    data.delete_one({
+        '_id':ObjectId(plant_id)
+    })
+    return redirect(url_for('index'))
+
 # "magic code" -- boilerplate
 if __name__ == '__main__':
     app.secret_key = 'super secret key'
