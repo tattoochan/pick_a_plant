@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-import os
-import pymongo	
+import os, pymongo	
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
@@ -34,19 +34,17 @@ def save_plant ():
     plant_name = request.form.get('plant_name')
     # Plant info
     plant_info = request.form.get('plant_info')
-    # Plant benefits
-    plant_benefits = request.form.get('plant_benefits')
     # Plant price
     plant_price = request.form.get('plant_price')
     # Plant_image
     plant_image = request.files['plant_image']
     if 'plant_image' not in request.files:
-        plant_image.filename = "default_image.jpg"
+        plant_image.filename = "default_plant.png"
     else:
     # if user does not select file, browser also
     # submit a empty part without filename
         if plant_image.filename == '':
-            plant_image.filename = "default_image.jpg"
+            plant_image.filename = "default_plant.png"
         else:
             # Upload image file to static folder
             plant_image.save(os.path.join(app.config['UPLOAD_FOLDER'], plant_image.filename ))
@@ -54,15 +52,57 @@ def save_plant ():
     data.insert({
         'plant_name' : plant_name,
         'plant_info' : plant_info,
-        'plant_benefits' : plant_benefits,
         'plant_price' : plant_price,
         'plant_image' : plant_image.filename, 
     })
     return redirect(url_for('index'))
     
-@app.route('/make_changes')
-def make_changes():
-    return render_template('make_changes.html')
+@app.route('/make_changes/<plant_id>/<image>')
+def make_changes(plant_id,image):
+    # Get the id of the plant being edited
+    result = data.find_one({
+        '_id':ObjectId(plant_id)
+    })
+    return render_template('make_changes.html', data=result)
+    
+@app.route('/make_changes/<plant_id>/<image>', methods=["POST"])
+def save_changes(plant_id,image):
+    # Get the id of the plant being edited
+    result = data.find_one({
+        '_id':ObjectId(plant_id)
+    })
+    # Plant name 
+    plant_name = request.form.get('plant_name')
+    # Plant info
+    plant_info = request.form.get('plant_info')
+    # Plant benefits
+    plant_benefits = request.form.get('plant_benefits')
+    # Plant price
+    plant_price = request.form.get('plant_price')
+    # Plant_image
+    plant_image = request.files['plant_image']
+    if 'plant_image' not in request.files:
+        plant_image.filename = image
+    else:
+    # if user does not select file, browser also
+    # submit a empty part without filename
+        if plant_image.filename == '':
+            plant_image.filename = image
+        else:
+            # Upload image file to static folder
+            plant_image.save(os.path.join(app.config['UPLOAD_FOLDER'], plant_image.filename ))
+
+    data.update({
+        '_id':ObjectId(plant_id)
+    }, {
+        '$set': {
+            'plant_name' : plant_name,
+            'plant_info' : plant_info,
+            'plant_price' : plant_price,
+            'plant_image' : plant_image.filename, 
+        }
+    })  
+    return redirect(url_for('index'))
     
 @app.route('/confirm_delete')
 def confirm_delete():

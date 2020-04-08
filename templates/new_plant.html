@@ -4,11 +4,13 @@
 <section class='container-fluid p-5'>
     <div class="row">
         <div class="col-4" style="height:100vh; width:100%;">
-            <img src="static/images/new_recipe_plant.png" style="height : auto; width:100%;"/>
-            
-            
+            <img src="/static/images/new_recipe_plant.png" style="height : auto; width:100%;"/>
         </div>
         <div class="col-8">
+            <div>   
+                <h2>The More Plants, The Merrier !</h2>
+            </div>
+            <hr/>
             <form method='POST' enctype='multipart/form-data'>
                     
                 <!--New plant name-->
@@ -19,7 +21,6 @@
                         <input type="text" class="form-control" id="plant_name" name="plant_name" placeholder="Share with us the plant name">
                     </div>
                 </div>
-                
                
                 <!--Plant info-->
                 <div class="form-group row">
@@ -29,18 +30,6 @@
                         <textarea class="form-control" id="plant_info" name='plant_info'></textarea>
                         <small class="form-text text-muted">
                           Tell us more about this plant to attract your audience.
-                        </small>
-                    </div>
-                </div>
-                
-                <!--Benefits of plant-->
-                <div class="form-group row">
-                    <label for="plant_benefits" class="col-sm-3 col-form-label">Benefits : </label>
-                    <div class="col-1">:</div>
-                    <div class="col-sm-8">
-                        <textarea class="form-control" id="plant_benefits" name='plant_benefits'></textarea>
-                        <small class="form-text text-muted">
-                          Any benefits to sell this pot better ?
                         </small>
                     </div>
                 </div>

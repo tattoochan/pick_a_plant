@@ -23,7 +23,7 @@
                         <div class="col-11 mx-auto d-flex align-items-end flex-column px-1">
                             <!--Display plant name-->
                             <div class="p-2 w-100">
-                                <strong>{{ d.plant_name }}</strong> <small><i><a href="{{ url_for('make_changes') }}">(make changes)</a></i></small>
+                                <strong>{{ d.plant_name }}</strong> <small><i><a href="{{ url_for('make_changes', plant_id=d['_id'], image=d['plant_image']) }}">(make changes)</a></i></small>
                             </div>
                             <div class="p-2 w-100">
                                 <small>{{ d.plant_info }}</small>
