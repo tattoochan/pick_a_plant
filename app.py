@@ -44,8 +44,9 @@ def save_plant ():
     # Plant price
     plant_price = request.form.get('plant_price')
     # Plant_image
-    
-    return plant_name + plant_benefits
+    plant_image = request.files['plant_image']
+
+    return plant_image.filename
     
     
 # "magic code" -- boilerplate
