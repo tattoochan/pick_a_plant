@@ -26,11 +26,6 @@ def index():
 
 @app.route('/new_plant') 
 def new_plant():
-    
-    
-    
-    
-    
     return render_template ("new_plant.html", data={})
  
 @app.route('/new_plant', methods=['POST'])
@@ -65,6 +60,13 @@ def save_plant ():
     })
     return redirect(url_for('index'))
     
+@app.route('/make_changes')
+def make_changes():
+    return render_template('make_changes.html')
+    
+@app.route('/confirm_delete')
+def confirm_delete():
+    return render_template('confirm_delete.html')
     
 # "magic code" -- boilerplate
 if __name__ == '__main__':
