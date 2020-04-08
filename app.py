@@ -14,11 +14,15 @@ conn = pymongo.MongoClient(MONGO_URI)
 # set 'data' to be the name to represent the database link
 data = conn[DATABASE_NAME][COLLECTION_NAME]
 
-
-@app.route('/') # map the root route to the index function
+''' map the root route to the index function '''
+@app.route('/')
 def index():
     result = data.find({})
     return render_template ("index.html" , data = result)
+
+@app.route('/new_plant') 
+def new_plant():
+    return render_template ("new_plant.html")
  
     
 # "magic code" -- boilerplate
