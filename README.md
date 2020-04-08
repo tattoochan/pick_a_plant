@@ -1,4 +1,4 @@
-# PROJECT 3 : PICK A
+# PROJECT 3 : PICK A PLANT
 
 ### Objective :   
     To build a protocol website for an ecommerce website to sell plants
