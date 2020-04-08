@@ -2,8 +2,12 @@
     background-image: url('../images/background_plants.jpg');
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: auto;
     width:100%;
+}
+.brand img {
+    height : 80px;
+    width : auto;
 }
 .listing {
     height:150px;
