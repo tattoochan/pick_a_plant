@@ -45,7 +45,7 @@ def save_plant ():
     plant_price = request.form.get('plant_price')
     # Plant_image
     plant_image = request.files['plant_image']
-
+    image_filename = plant_image.filename.replace(" ", "_")
     if 'plant_image' not in request.files:
         plant_image.filename = "default_image.jpg"
     else:
@@ -54,11 +54,18 @@ def save_plant ():
         if plant_image.filename == '':
             plant_image.filename = "default_image.jpg"
         else:
-            plant_image.save(os.path.join(app.config['UPLOAD_FOLDER'], plant_image.filename.replace(" ", "_") ))
+            plant_image.save(os.path.join(app.config['UPLOAD_FOLDER'], image_filename ))
             # Upload image file to static folder
             plant_image.save(os.path.join(app.config['UPLOAD_FOLDER'], plant_image.filename ))
             
-    return 
+    data.insert({
+        'plant_name' : plant_name,
+        'plant_info' : plant_info,
+        'plant_benefits' : plant_benefits,
+        'plant_price' : plant_price,
+        'plant_image' : image_filename, 
+    })
+    return redirect(url_for('index'))
     
     
 # "magic code" -- boilerplate
