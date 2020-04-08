@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block page_title %}Hello, world!{% endblock %}
+{% block content %}
+    <h1>Hello, Extended world!</h1>
+    {% for d in data %}
+        {{ d.plant_name }}
+    {% endfor %}
+{% endblock %}
+  
