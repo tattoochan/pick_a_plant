@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% block page_title %}Hello, world!{% endblock %}
 {% block content %}
-<main>
+<main class='container-fluid p-5'>
     <h1>Hello, Extended world!</h1>
     <a class="nav-link" href="{{ url_for('new_plant') }}">Submit a recipe</a>
-
+    <div class="row">
     {% for d in data %}
-        {{ d.plant_name }}
+        <div class="col-4">
+            <img 
+            style="height:150px;width:auto;"
+            src='static/images/{{ d.plant_image }}'/>
+        </div>
     {% endfor %}
+    </div>
 </main>
 {% endblock %}
   
