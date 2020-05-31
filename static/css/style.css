@@ -4,7 +4,6 @@ main {
 
 #banner {
     width : 100%;
-    height : 200px;
     background-image: url('/static/images/green-leaf-plant.jpg');
     background-position: center;
     background-repeat: no-repeat;
