@@ -1,77 +1,17 @@
-{% extends 'base.html' %} {% block page_title %}Hello, world!{% endblock %} {% block content %}
-<main class='container-fluid'>
-    <div class="row">
-        <div id='side-banner' class="col-3"></div>
-        <div class="col-9 p-0">
-            <!--Navbar-->
-            <nav class="navbar navbar-expand-lg navbar-light">
-              <a class="navbar-brand" href="{{ url_for('index') }}">
-                <div class="brand d-flex p-4">
-                    <img src="/static/images/plant_logo.png"/>
-                    <h2 class="align-self-center"><span class="pl-3 text-danger">Pick</span> a <span class="text-success">Plant</span> </h2>
-                </div>
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-                  </li>
-            
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('new_plant') }}">New plant for sale</a>
-                  </li>
-            
-                </ul>
-                <p class="pr-5"><span class="text-success"><a href="mailto:tattoochan1989@gmail.com">Contact Us</a></span></p>
-              </div>
-            </nav>
-            <div class="row p-5">
-                {% for d in data %}
-                <div class="col-4 p-1">
-                    <div class="row">
-                        <!--Display image-->
-                        <div class="col-11 d-flex">
-                            <div class="listing text-center mx-auto">
-                                <img src='static/images/{{ d.plant_image }}' />
-                            </div>
-                            <div>
-                                <a class="close" href="{{ url_for('confirm_delete', plant_id=d['_id']) }}"><small>&#x2716</small></a>
-                            </div>
-                            
-                        </div>
-                        <!--Plant bio-->
-                        <div class="col-11 mx-auto d-flex align-items-end flex-column px-1">
-                            <!--Display plant name-->
-                            <div class="p-2 w-100">
-                                <strong>{{ d.plant_name }}</strong> <small><i><a href="{{ url_for('make_changes', plant_id=d['_id'], image=d['plant_image']) }}">(make changes)</a></i></small>
-                            </div>
-                            <div class="p-2 w-100">
-                                <small>{{ d.plant_info }}</small>
-                            </div>
-                            <div class="mt-auto p-2 w-100">
-                                <button class="btn-btn-light">$ {{ d.plant_price }}</button>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <footer class="text-muted p-5">
-                <div class='p-0 pr-5'>
-                    <i class="fa fa-facebook-square" style="font-size:30px;"></i>
-                    <i class="fa fa-instagram px-2" style="font-size:30px"></i>
-                    <i class="fa fa-twitter" style="font-size:30px"></i>
-                </div>
-                <small class='mx-auto'>@Planting the seeds of thought</small>
-            </footer>
+{% extends 'base.html' %} 
+{% block page_title %}Hello, world!{% endblock %} 
+{% block content %}
+<main class='container-fluid p-0'>
+    <div class="row px-5 py-2">
+        <div class="col-md-4 col-12 mx-auto">
+            <form class='form-group border border-success'>
+                <input type="text" name="search-bar" class='form-control' placeholder='Find your plant..'/>
+            </form>
         </div>
-        
     </div>
+    <div id="banner"></div>
+    
+
 </main>
+
 {% endblock %}
