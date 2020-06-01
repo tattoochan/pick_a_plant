@@ -106,7 +106,7 @@ def save_changes(plant_id,image):
             'plant_image' : plant_image.filename, 
         }
     })  
-    return redirect(url_for('index'))
+    return redirect(url_for('plants'))
     
 """ DELETE ROUTE """
 @app.route('/confirm_delete/<plant_id>')
@@ -122,7 +122,7 @@ def delete_plant(plant_id):
     data.delete_one({
         '_id':ObjectId(plant_id)
     })
-    return redirect(url_for('index'))
+    return redirect(url_for('plants'))
 
 # "magic code" -- boilerplate
 if __name__ == '__main__':
