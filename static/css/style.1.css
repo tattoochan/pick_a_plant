@@ -1,0 +1,46 @@
+main {
+    min-height: 100vh;
+}
+.main-images{
+    min-height : 250px;
+    width : 100%;
+}
+
+.main-images img{
+    max-width:100%;
+    width : auto;
+    max-height : 100%;
+    height:auto;
+}
+#side-banner {
+    background-image: url('../images/background_plants.jpg');
+    background-position: center;
+    background-size: cover;
+    height: auto;
+    width:100%;
+}
+.brand img {
+    height : auto;
+    width : 100%;
+}
+.listing {
+    height:150px;
+    width:150px;
+}
+.listing img {
+    height : 100%;
+    width : auto;
+}
+
+/*Close button CSS*/
+.close {
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}

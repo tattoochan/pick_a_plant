@@ -1,54 +1,25 @@
 main {
     min-height: 100vh;
 }
-
-#banner {
-    width : 100%;
-    background-image: url('/static/images/green-leaf-plant.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-
-
-
-
-
-
-
-
-
-#side-banner {
-    background-image: url('../images/background_plants.jpg');
-    background-position: center;
-    background-size: cover;
-    height: auto;
-    width:100%;
-}
-.brand img {
-    height : auto;
+.main-images{
+    min-height : 150px;
+    max-height: 40rem;
     width : 100%;
 }
-.listing {
-    height:150px;
-    width:150px;
-}
-.listing img {
-    height : 100%;
+
+.main-images img{
+    max-width:100%;
     width : auto;
+    max-height : 100%;
+    height:auto;
 }
 
-/*Close button CSS*/
-.close {
-  position: absolute;
-  right: 32px;
-  top: 32px;
-  width: 32px;
-  height: 32px;
-  opacity: 0.3;
+.swap {
+        order : 0;
 }
-.close:hover {
-  opacity: 1;
+
+@media only screen and (max-width : 768px) {
+    .swap {
+        order : 2;
+    }
 }

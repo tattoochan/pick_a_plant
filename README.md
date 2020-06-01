@@ -1,39 +1,44 @@
 # PROJECT 3 : PICK A PLANT
+Link : https://pick-a-plant.herokuapp.com/
 
-### Objective :   
-    To build a protocol website for an ecommerce website to sell plants
+## Objective :   
+This is a prototype to allow plant-sellers to create a community where
 
-#### SCOPE
-The website allows User to :
+## UX
     
-    CREATE
-    * submit a new listing for a new plant
-    READ
-    * Assess the database and display the details in the data
-    UPDATE
-    * edit and update an existing listing
-    DELETE
-    * select and remove an existing listing
+As a user, 
+- they will be able to post their items for sale on the website
+- they will be able to make changes to their listing
+- they will be able to remove the listing
+- they will be able to sell their items on the website 
+- they will be able to build a community
+- they will be able to create their own profile (future development)
 
-#### Demo
+As a browser 
+- they will be able to browse and make purchase for the plant they chosen (future development)
+- they will be able to message the seller (future development)
+
+As a host of the website
+- we will build the community for sellers and buyers to transact
+- we will generate revenue from transactions
+- we will generate revenue from advertisers who will list on our webste
+
+## Demo
 
 A live demo can be found here : https://pick-a-plant.herokuapp.com
 
-#### UX
-    My Considerations for the website:
-    * user able to submit, make changes and remove a plant listing on the website
-    * display all the pots for sale and easy for user to select
 
-#### Technologies
-    1. HTML
-    2. CSS
-    3. Bootstrap (3.3.7)
-    4. MongoDB
-    5. Python 3
-    6. Flask
-    7. Jinja
+## Technologies
 
-#### Features
+1. HTML
+2. CSS
+3. Bootstrap (3.3.7)
+4. MongoDB
+5. Python 3
+6. Flask
+7. Jinja
+
+## Features
 				
 **My Design of the site :**
 
@@ -63,19 +68,23 @@ Test Results as follows :
 This site is hosted using Heroku App Link : 
 _https://pick-a-plant.herokuapp.com/_
 
-    All codes are uploaded to GitHub and links are made to Heroku by installing in bash terminal in projects.
-    Regular commits are push to the Github subsequently push to heroku to deploy.
-    .gitignore file is added to remove files that are not required or files that we do not wish to be uploaded to Github
+Regular commits are made to Github. Below are the commands to initalise and make regular commits, enter the commands in bash terminal in AWS
+
+- git init .
+- git add .
+- git commit -m "Commit Message"
+- git remote add origin https://github.com/tattoochan/project2.git
+- git push -u origin master
 
 _Deploy Heroku:_
 
-    i) Install Heroku using bash
-    ii) Login to Heroku
-    iii) Install gunicorn
-    iv) Create Procfile and requirements.txt
-    V) Commit and push to Heroku 
-    vi) Set up the Environment Vasriables
-    vii) Update Dependencies
+- Install Heroku using bash
+- Login to Heroku
+- Install gunicorn
+- Create Procfile and requirements.txt
+- Commit and push to Heroku 
+- Set up the Environment Vasriables
+- Update Dependencies
 
 
 #### Credits
