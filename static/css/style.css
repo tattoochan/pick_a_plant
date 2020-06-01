@@ -46,3 +46,15 @@ main {
 .close:hover {
   opacity: 1;
 }
+
+/*image size for make_changes.html*/
+.edit-plant-img {
+    height : 18rem;
+    width : 18rem;
+}
+.edit-plant-img img{
+    max-width:100%;
+    width : auto;
+    max-height : 100%;
+    height:auto;
+}

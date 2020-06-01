@@ -22,7 +22,11 @@ data = conn[DATABASE_NAME][COLLECTION_NAME]
 @app.route('/')
 def index():
     return render_template ("index.html")
-
+""" Display Search results """
+@app.route('/', methods=['POST'])
+def search():
+    return render_template("plants.html")
+""" Display Listing """
 @app.route('/plants')
 def plants(): 
     result = data.find({})

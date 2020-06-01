@@ -32,9 +32,6 @@
           <a class="nav-link" href="{{url_for('plants')}}">Plants</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Delivery</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#contact-us">Contact Us</a>
         </li>
       </ul>
@@ -54,7 +51,7 @@
   <footer id="contact-us" class="card text-center p-2">
     <div class="card-body">
       <div class="row">
-        <div class="col-4"><img src='../static/images/growing-season.png'/></div>
+        <div class="col-4">{% block footer_image %} &nbsp {% endblock %}</div>
         <!--Delivery shoutout-->
         <div class="col-md-4 col-12 p-3 text-left">
           <strong> Locate Us @</strong><br/>

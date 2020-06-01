@@ -9,8 +9,9 @@
     <!--Search bar-->
     <div class="row px-5 py-md-3 py-2">
         <div class="col-md-4 col-12 mx-auto">
-            <form class='form-group border border-success'>
-                <input type="text" name="search-bar" class='form-control' placeholder='Find your plant..'/>
+            <form class='form-group d-flex' method="POST">
+                <input type="text" name="search-bar" class='form-control border border-success' placeholder='Find your plant..'/>
+                <button type='submit' class='btn btn-light'>Find!</button>
             </form>
         </div>
     </div>
@@ -68,3 +69,4 @@
 </main>
 
 {% endblock %}
+{% block footer_image %} <img src='../static/images/growing-season.png'/> {% endblock %}
