@@ -1,12 +1,11 @@
-{% extends 'base.html' %} {% block page_title %}Hello, world!{% endblock %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <section class='container-fluid p-5'>
     <div class="row text-center">
-        <div class="col-4" style="height:100vh; width:100%;">
-            <img src="/static/images/{{data.plant_image}}" style="height : auto; width:100%;"/>
+        <div class="plant-img col-md-4 col-12 text-center mb-3">
+            <img src="/static/images/{{data.plant_image}}" class=''/>
         </div>
-        <div class="col-8">
-            <div class="text-left text-muted py-4"><i><a href="{{ url_for('index') }}">Home</a> / Remove plant from inventory    </i></div>
-
+        <div class="col-md-8 col-12">
             <div class="rounded border p-5">
                 <div>   
                     <h2>Gardening, a step towards a better future !</h2>
