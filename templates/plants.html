@@ -1,11 +1,32 @@
 {% extends 'base.html' %} {% block page_title %}Hello, world!{% endblock %} {% block content %}
 <section class='container-fluid'>
-  <div class="row text-center">
-      <div class="col-12 ">
-          <div class='plant-img mx-auto'>
-              <img src="static/images/money_plant.png"/>
-          </div>
-      </div>
-  </div>
+    <div class="text-center mt-3">
+        <h4>Happy Browsing , Happy Potting !</h4>
+        <small  class="form-text text-muted">
+          If you are unable to find the plant you are looking for, please send us an <a href="mailto:">email</a> with the image or description.
+        </small>
+    </div>
+    <div class="row text-center">
+        {% for d in data %}
+        <div class="col-lg-4 col-sm-6 col-12 p-md-4 p-2">
+            <!--image of plant-->
+            <div class="col-12 ">
+                <div class='plant-img mx-auto'>
+                    <img src="static/images/{{ d.plant_image }}" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="p-2 w-100">
+                    <strong>{{ d.plant_name }}</strong> <small><i><a href="{{ url_for('make_changes', plant_id=d['_id'], image=d['plant_image']) }}">(make changes)</a></i></small>
+                </div>
+                <p class='text-justify'>
+                    {{ d.plant_info }}<br>
+                    <button class="btn btn-light border border-dark">$ {{ d.plant_price }}</button>
+                    <button class="btn btn-success">Buy</button>
+                </p>
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
 </section>
 {% endblock %}
