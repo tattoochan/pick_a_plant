@@ -12,7 +12,7 @@
   <!--CSS styling-->
   <link rel="stylesheet" href="{{ url_for('static', filename ='css/style.css') }}" type="text/css" />
 
-  <title>{% block page_title %}{% endblock %}</title>
+  <title>{% block page_title %}Pick Your Own Plants | Enjoy fresh air everyday{% endblock %}</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
       </ul>
       <ul class="navbar-nav ml-auto mr-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Add new plant</a>
+          <a class="nav-link" href="{{url_for('new_plant')}}">Add new plant</a>
         </li>
       </ul>
     </div>

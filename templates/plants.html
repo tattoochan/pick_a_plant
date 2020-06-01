@@ -1,7 +1,8 @@
 {% extends 'base.html' %} {% block page_title %}Hello, world!{% endblock %} {% block content %}
 <section class='container-fluid'>
     <div class="text-center mt-3">
-        <h4>Happy Browsing , Happy Potting !</h4>
+
+        <h4>Happy Browsing & Happy Potting !</h4>
         <small  class="form-text text-muted">
           If you are unable to find the plant you are looking for, please send us an <a href="mailto:">email</a> with the image or description.
         </small>
@@ -13,6 +14,9 @@
             <div class="col-12 ">
                 <div class='plant-img mx-auto'>
                     <img src="static/images/{{ d.plant_image }}" />
+                </div>
+                <div>
+                    <a class="close" href="{{ url_for('confirm_delete', plant_id=d['_id']) }}"><small>&#x2716</small></a>
                 </div>
             </div>
             <div class="col-12">
