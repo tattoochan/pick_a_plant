@@ -21,11 +21,18 @@ data = conn[DATABASE_NAME][COLLECTION_NAME]
 """ LANDINGPAGE """
 @app.route('/')
 def index():
-    return render_template ("index.html")
+    return render_template ("index.html", data={})
 """ Display Search results """
 @app.route('/', methods=['POST'])
 def search():
-    return render_template("plants.html")
+    search_name = request.form.get('search-name')
+    data.create_index([('plant_name', 'text')])
+    result = data.find({
+        '$text': {
+            "$search" : search_name
+        }
+    })
+    return render_template("plants.html", data=result)
 """ Display Listing """
 @app.route('/plants')
 def plants(): 
