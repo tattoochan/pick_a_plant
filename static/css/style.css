@@ -1,3 +1,4 @@
+/*Index styling*/
 main {
     min-height: 100vh;
 }
@@ -6,20 +7,30 @@ main {
     max-height: 40rem;
     width : 100%;
 }
-
 .main-images img{
     max-width:100%;
     width : auto;
     max-height : 100%;
     height:auto;
 }
-
 .swap {
         order : 0;
 }
-
+/*Index small screen styling*/
 @media only screen and (max-width : 768px) {
     .swap {
         order : 2;
     }
+}
+
+/*Plants styling*/
+.plant-img {
+    height : 15rem;
+    width : 15rem;
+}
+.plant-img img{
+    max-width:100%;
+    width : auto;
+    max-height : 100%;
+    height:auto;
 }

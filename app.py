@@ -21,9 +21,13 @@ data = conn[DATABASE_NAME][COLLECTION_NAME]
 """ LANDINGPAGE """
 @app.route('/')
 def index():
-    result = data.find({})
-    return render_template ("index.html" , data = result)
+    return render_template ("index.html")
 
+@app.route('/plants')
+def plants(): 
+    result = data.find({})
+    return render_template ("plants.html", data = result)
+    
 """ NEW PLANT ENTRY """
 @app.route('/new_plant') 
 def new_plant():
